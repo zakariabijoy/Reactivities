@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "K+bKmXtArjLaN7kg8Rf1PrnpT69I1YP7zGM89flsav2XaSSldx1GhZYIHdEooMXJK9CFOly7XFM27qSLaDJpnQ==",
+  "success": true,
+  "projectFilePath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Zakaria\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Zakaria\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
