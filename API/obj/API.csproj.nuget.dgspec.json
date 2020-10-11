@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\API.csproj": {}
+    "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\API.csproj": {}
   },
   "projects": {
-    "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\API.csproj": {
+    "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\API.csproj",
+        "projectUniqueName": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\API.csproj",
+        "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Zakaria\\.nuget\\packages\\",
-        "outputPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\obj\\",
+        "outputPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zakaria\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj": {
-                "projectPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj"
+              "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj": {
+                "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj"
               }
             }
           }
@@ -41,6 +41,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,14 +69,14 @@
         }
       }
     },
-    "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj": {
+    "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj",
+        "projectUniqueName": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj",
         "projectName": "Appliaction",
-        "projectPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj",
+        "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj",
         "packagesPath": "C:\\Users\\Zakaria\\.nuget\\packages\\",
-        "outputPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\obj\\",
+        "outputPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zakaria\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -86,11 +92,11 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj": {
-                "projectPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj"
+              "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj": {
+                "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj"
               },
-              "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj": {
-                "projectPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj"
+              "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj": {
+                "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -125,14 +131,14 @@
         }
       }
     },
-    "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj": {
+    "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj",
+        "projectUniqueName": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj",
+        "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Zakaria\\.nuget\\packages\\",
-        "outputPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\obj\\",
+        "outputPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zakaria\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -180,14 +186,14 @@
         }
       }
     },
-    "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj": {
+    "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\Zakaria\\.nuget\\packages\\",
-        "outputPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\obj\\",
+        "outputPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zakaria\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -203,8 +209,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj": {
-                "projectPath": "f:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj"
+              "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj": {
+                "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj"
               }
             }
           }
