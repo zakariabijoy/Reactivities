@@ -1,11 +1,67 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "Appliaction/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Persistence": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Appliaction.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Appliaction.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "Persistence/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Persistence.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Persistence.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Appliaction/1.0.0": {
+      "type": "project",
+      "path": "../Appliaction/Appliaction.csproj",
+      "msbuildProject": "../Appliaction/Appliaction.csproj"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Persistence/1.0.0": {
+      "type": "project",
+      "path": "../Persistence/Persistence.csproj",
+      "msbuildProject": "../Persistence/Persistence.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "Appliaction >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Zakaria\\.nuget\\packages\\": {}
@@ -32,7 +88,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj": {
+              "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

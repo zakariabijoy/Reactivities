@@ -25,6 +25,29 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "Persistence/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Persistence.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Persistence.dll": {}
+        }
       }
     }
   },
@@ -172,11 +195,23 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Persistence/1.0.0": {
+      "type": "project",
+      "path": "../Persistence/Persistence.csproj",
+      "msbuildProject": "../Persistence/Persistence.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "NETStandard.Library >= 2.0.3"
+      "Domain >= 1.0.0",
+      "NETStandard.Library >= 2.0.3",
+      "Persistence >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -204,7 +239,14 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj": {
+              "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Domain\\Domain.csproj"
+            },
+            "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj": {
+              "projectPath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Persistence\\Persistence.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
