@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YJSdOnZTEb/qi4crEhoTuZCeoD5VcPaNHbPj4LMcubKeLMSevZfkWqoEVwjD3omrMFlpzB8c3KNz6+MFyCj7VQ==",
+  "dgSpecHash": "Lg+a7XZYSYfk6dyGbqVA2r40oZBXzoWj6zxp8BXqpYPzQDvhQGd9YrZjEa58SwAx8CZ4+348l5c2Lcn+/1S6zw==",
   "success": true,
   "projectFilePath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\Appliaction\\Appliaction.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Zakaria\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\Zakaria\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\Zakaria\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Zakaria\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Zakaria\\.nuget\\packages\\microsoft.data.sqlite.core\\3.1.8\\microsoft.data.sqlite.core.3.1.8.nupkg.sha512",
