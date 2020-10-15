@@ -20,15 +20,21 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Activity>>> List(CancellationToken ct)
+        public async Task<ActionResult<List<Activity>>> List()
         {
-          return await _mediator.Send(new List.Query(), ct);  
+          return await _mediator.Send(new List.Query());  
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Activity>> Details(Guid id)
         {
             return await _mediator.Send( new Details.Query{Id = id});
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Unit>> Create(Create.Command command)
+        {
+            return await _mediator.Send(command);
         }
 
     }
