@@ -23,7 +23,7 @@ const ActivityDetails: React.FC<IProps> = ({
       <Card.Content>
         <Card.Header>{activity.title}</Card.Header>
         <Card.Meta>
-          <span>{activity.data}</span>
+          <span>{activity.date}</span>
         </Card.Meta>
         <Card.Description>{activity.description}</Card.Description>
       </Card.Content>
