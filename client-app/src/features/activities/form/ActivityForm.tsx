@@ -1,6 +1,8 @@
 import React from "react";
 import { Form, Segment } from "semantic-ui-react";
 
+
+
 const ActivityForm = () => {
   return (
       <Segment>
