@@ -4,6 +4,7 @@ import { IActivity } from "../models/activity";
 import NavBar from "../../features/nav/NavBar";
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
 import agent from '../api/agent';
+import LoadingComponent from './LoadingComponent'
 
 
 const App = () => {
@@ -12,19 +13,9 @@ const App = () => {
     null
   );
   const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    agent.activities.list()
-      .then((response) => {
-        let activities: IActivity[] = [];
-        response.forEach((activity) => {
-          activity.date = activity.date.split('.')[0];
-          activities.push(activity);
-        });
-        setActivities(activities);
-      });
-  }, []);
-
+  
   const handleSelectAcitvity = (id: string) => {
     setSelectedActivity(activities.filter((a) => a.id === id)[0]);
   };
@@ -56,6 +47,20 @@ const App = () => {
       setActivities([...activities.filter(a => a.id !== id)]);
     });
   }
+
+  useEffect(() => {
+    agent.activities.list()
+      .then((response) => {
+        let activities: IActivity[] = [];
+        response.forEach((activity) => {
+          activity.date = activity.date.split('.')[0];
+          activities.push(activity);
+        });
+        setActivities(activities);
+      }).then(()=> setLoading(false));
+  }, []);
+
+  if(loading) return (<LoadingComponent content='Loading Activities...'/>);
 
   return (
     <React.Fragment>
