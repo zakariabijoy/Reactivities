@@ -47,6 +47,10 @@ const App = () => {
     setEditMode(false);
   }
 
+  const handleDeleteActivity = (id : string) =>{
+    setActivities([...activities.filter(a => a.id !== id)]);
+  }
+
   return (
     <React.Fragment>
       <NavBar openCreateForm ={handleOpenCreateForm} />
@@ -60,6 +64,7 @@ const App = () => {
           setEditMode={setEditMode}
           createActivity = {handleCreateActivity}
           editActivity = {handleEditActivity}
+          deleteActivity = {handleDeleteActivity}
         />
       </Container>
     </React.Fragment>

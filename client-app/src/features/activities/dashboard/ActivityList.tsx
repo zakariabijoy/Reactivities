@@ -6,12 +6,14 @@ interface IProps {
   activities: IActivity[];
   selectActivity: (id: string) => void;
   setEditMode: (editMode: boolean) => void;
+  deleteActivity: (id: string) => void;
 }
 
 const ActivityList: React.FC<IProps> = ({
   activities,
   selectActivity,
   setEditMode,
+  deleteActivity
 }) => {
   return (
     <Segment clearing>
@@ -36,6 +38,14 @@ const ActivityList: React.FC<IProps> = ({
                   floated="right"
                   content="view"
                   color="blue"
+                />
+                <Button
+                  onClick={() => {
+                    deleteActivity(activity.id);
+                  }}
+                  floated="right"
+                  content="Delete"
+                  color="red"
                 />
                 <Label basic content={activity.category} />
               </Item.Extra>
