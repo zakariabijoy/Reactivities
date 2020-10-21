@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 import { Container } from "semantic-ui-react";
 import axios from "axios";
 import { IActivity } from "../models/activity";
@@ -12,6 +12,14 @@ const App = () => {
   );
   const [editMode, setEditMode] = useState(false);
 
+  useEffect(() => {
+    axios
+      .get<IActivity[]>("https://localhost:5001/api/activities")
+      .then((response) => {
+        setActivities(response.data);
+      });
+  }, []);
+
   const handleSelectAcitvity = (id: string) => {
     setSelectedActivity(activities.filter((a) => a.id === id)[0]);
   };
@@ -21,13 +29,18 @@ const App = () => {
     setEditMode(true);
   }
 
-  useEffect(() => {
-    axios
-      .get<IActivity[]>("https://localhost:5001/api/activities")
-      .then((response) => {
-        setActivities(response.data);
-      });
-  }, []);
+  const handleCreateActivity = (activity : IActivity) =>{
+    setActivities([...activities, activity]);
+    setSelectedActivity(activity);
+    setEditMode(false);
+  }
+
+  
+  const handleEditActivity = (activity : IActivity) =>{
+    setActivities([...activities.filter(a => a.id !== activity.id), activity]);
+    setSelectedActivity(activity);
+    setEditMode(false);
+  }
 
   return (
     <React.Fragment>
@@ -40,6 +53,8 @@ const App = () => {
           setSelectedActivity ={setSelectedActivity}
           editMode={editMode}
           setEditMode={setEditMode}
+          createActivity = {handleCreateActivity}
+          editActivity = {handleEditActivity}
         />
       </Container>
     </React.Fragment>
