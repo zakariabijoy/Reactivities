@@ -6,6 +6,7 @@ import ActivityDashboard from "../../features/activities/dashboard/ActivityDashb
 import agent from "../api/agent";
 import LoadingComponent from "./LoadingComponent";
 import ActivityStore from "../stores/activityStore";
+import { observer } from "mobx-react-lite";
 
 const App = () => {
   const activityStore = useContext(ActivityStore);
@@ -70,32 +71,20 @@ const App = () => {
   };
 
   useEffect(() => {
-    agent.activities
-      .list()
-      .then((response) => {
-        let activities: IActivity[] = [];
-        response.forEach((activity) => {
-          activity.date = activity.date.split(".")[0];
-          activities.push(activity);
-        });
-        setActivities(activities);
-      })
-      .then(() => setLoading(false));
-  }, []);
+    activityStore.loadActivities();
+  }, [activityStore]);
 
-  if (loading) return <LoadingComponent content="Loading Activities..." />;
+  if (activityStore.loadingInitial)
+    return <LoadingComponent content="Loading Activities..." />;
 
   return (
     <React.Fragment>
       <NavBar openCreateForm={handleOpenCreateForm} />
       <Container style={{ marginTop: "7em" }}>
-        <h1>{activityStore.title}</h1>
         <ActivityDashboard
-          activities={activities}
+          activities={activityStore.activities}
           selectActivity={handleSelectAcitvity}
-          selectedActivity={selectedActivity}
           setSelectedActivity={setSelectedActivity}
-          editMode={editMode}
           setEditMode={setEditMode}
           createActivity={handleCreateActivity}
           editActivity={handleEditActivity}
@@ -108,4 +97,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default observer(App);
