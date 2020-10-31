@@ -19,27 +19,6 @@ const App = () => {
   const [submitting, setSubmitting] = useState(false);
   const [target, setTarget] = useState("");
 
-  const handleSelectAcitvity = (id: string) => {
-    setSelectedActivity(activities.filter((a) => a.id === id)[0]);
-  };
-
-  const handleOpenCreateForm = () => {
-    setSelectedActivity(null);
-    setEditMode(true);
-  };
-
-  const handleCreateActivity = (activity: IActivity) => {
-    setSubmitting(true);
-    agent.activities
-      .create(activity)
-      .then(() => {
-        setActivities([...activities, activity]);
-        setSelectedActivity(activity);
-        setEditMode(false);
-      })
-      .then(() => setSubmitting(false));
-  };
-
   const handleEditActivity = (activity: IActivity) => {
     setSubmitting(true);
     agent.activities
@@ -79,14 +58,12 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <NavBar openCreateForm={handleOpenCreateForm} />
+      <NavBar />
       <Container style={{ marginTop: "7em" }}>
         <ActivityDashboard
           activities={activityStore.activities}
-          selectActivity={handleSelectAcitvity}
           setSelectedActivity={setSelectedActivity}
           setEditMode={setEditMode}
-          createActivity={handleCreateActivity}
           editActivity={handleEditActivity}
           deleteActivity={handleDeleteActivity}
           submitting={submitting}

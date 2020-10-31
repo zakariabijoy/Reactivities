@@ -14,6 +14,7 @@ class ActivityStore {
   selectedActivity: IActivity | undefined = undefined;
   loadingInitial = false;
   editMode = false;
+  submitting = false;
 
   loadActivities = async () => {
     this.loadingInitial = true;
@@ -32,6 +33,25 @@ class ActivityStore {
 
   selectActivity = (id: string) => {
     this.selectedActivity = this.activities.find((a) => a.id === id);
+  };
+
+  createActivity = async (activity: IActivity) => {
+    this.submitting = true;
+    try {
+      await agent.activities.create(activity);
+      this.activities.push(activity);
+      this.selectedActivity = activity;
+      this.editMode = false;
+      this.submitting = false;
+    } catch (error) {
+      console.log(error);
+      this.submitting = false;
+    }
+  };
+
+  openCreateForm = () => {
+    this.selectedActivity = undefined;
+    this.editMode = true;
   };
 }
 
