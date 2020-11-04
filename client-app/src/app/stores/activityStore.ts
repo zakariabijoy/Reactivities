@@ -9,6 +9,7 @@ class ActivityStore {
   }
 
   //obserable
+  activityRegistry = new Map();
   activities: IActivity[] = [];
   selectedActivity: IActivity | undefined = undefined;
   loadingInitial = false;
@@ -17,7 +18,7 @@ class ActivityStore {
 
   //computeed
   get activitiesByDate() {
-    return this.activities
+    return Array.from(this.activityRegistry.values())
       .slice(0)
       .sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
   }
@@ -29,7 +30,7 @@ class ActivityStore {
       const activities = await agent.activities.list();
       activities.forEach((activity) => {
         activity.date = activity.date.split(".")[0];
-        this.activities.push(activity);
+        this.activityRegistry.set(activity.id, activity);
       });
       this.loadingInitial = false;
     } catch (error) {
@@ -39,14 +40,14 @@ class ActivityStore {
   };
 
   selectActivity = (id: string) => {
-    this.selectedActivity = this.activities.find((a) => a.id === id);
+    this.selectedActivity = this.activityRegistry.get(id);
   };
 
   createActivity = async (activity: IActivity) => {
     this.submitting = true;
     try {
       await agent.activities.create(activity);
-      this.activities.push(activity);
+      this.activityRegistry.set(activity.id, activity);
       this.selectedActivity = activity;
       this.editMode = false;
       this.submitting = false;
