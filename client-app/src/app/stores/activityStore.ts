@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { createContext } from "react";
+import { runInThisContext } from "vm";
 import agent from "../api/agent";
 import { IActivity } from "./../models/activity";
 
@@ -41,6 +42,7 @@ class ActivityStore {
 
   selectActivity = (id: string) => {
     this.selectedActivity = this.activityRegistry.get(id);
+    this.editMode = false;
   };
 
   createActivity = async (activity: IActivity) => {
@@ -57,9 +59,37 @@ class ActivityStore {
     }
   };
 
+  editActivity = async (activity: IActivity) => {
+    this.submitting = true;
+    try {
+      await agent.activities.update(activity);
+      this.activityRegistry.set(activity.id, activity);
+      this.selectedActivity = activity;
+      this.editMode = false;
+      this.submitting = false;
+    } catch (error) {
+      console.log(error);
+      this.submitting = false;
+    }
+  };
+
   openCreateForm = () => {
     this.selectedActivity = undefined;
     this.editMode = true;
+  };
+
+  openEditMode = (id: string) => {
+    this.selectedActivity = this.activityRegistry.get(id);
+    this.editMode = true;
+  };
+
+  cancelSelectedActivity = () => {
+    this.selectedActivity = undefined;
+    this.editMode = false;
+  };
+
+  cancelFormOpen = () => {
+    this.editMode = false;
   };
 }
 

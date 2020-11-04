@@ -1,18 +1,15 @@
 import React, { SyntheticEvent, useContext } from "react";
 import { Button, Item, Label, Segment } from "semantic-ui-react";
-import { IActivity } from "../../../app/models/activity";
 import { observer } from "mobx-react-lite";
 import ActivityStore from "../../../app/stores/activityStore";
 
 interface IProps {
-  setEditMode: (editMode: boolean) => void;
   deleteActivity: (e: SyntheticEvent<HTMLButtonElement>, id: string) => void;
   submitting: boolean;
   target: string;
 }
 
 const ActivityList: React.FC<IProps> = ({
-  setEditMode,
   deleteActivity,
   submitting,
   target,
@@ -37,7 +34,6 @@ const ActivityList: React.FC<IProps> = ({
                 <Button
                   onClick={() => {
                     selectActivity(activity.id);
-                    setEditMode(false);
                   }}
                   floated="right"
                   content="view"
