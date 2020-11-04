@@ -3,6 +3,7 @@ import { Button, Form, Segment } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
 import { v4 as uuid } from "uuid";
 import ActivityStore from "../../../app/stores/activityStore";
+import { observer } from "mobx-react-lite";
 
 interface IProps {
   activity: IActivity;
@@ -112,4 +113,4 @@ const ActivityForm: React.FC<IProps> = ({ activity: InitialFormState }) => {
   );
 };
 
-export default ActivityForm;
+export default observer(ActivityForm);
