@@ -49,14 +49,14 @@ class ActivityStore {
   loadActivity = async (id: string) => {
     let activity = this.activityRegistry.get(id);
     if (activity) {
-      this.selectActivity = activity;
+      this.activity = activity;
     } else {
       this.loadingInitial = true;
 
       try {
         activity = await agent.activities.details(id);
         runInAction(() => {
-          this.selectActivity = activity;
+          this.activity = activity;
           this.loadingInitial = false;
         });
       } catch (error) {
