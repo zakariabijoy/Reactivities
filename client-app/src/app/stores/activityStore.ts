@@ -13,7 +13,7 @@ class ActivityStore {
   //obserable
   activityRegistry = new Map();
   activities: IActivity[] = [];
-  activity: IActivity | undefined = undefined;
+  activity: IActivity | null = null;
   loadingInitial = false;
   editMode = false;
   submitting = false;
@@ -68,6 +68,10 @@ class ActivityStore {
     }
   };
 
+  clearActivity = () => {
+    this.activity = null;
+  };
+
   selectActivity = (id: string) => {
     this.activity = this.activityRegistry.get(id);
     this.editMode = false;
@@ -116,7 +120,7 @@ class ActivityStore {
       await agent.activities.delete(id);
       runInAction(() => {
         this.activityRegistry.delete(id);
-        this.activity = undefined;
+        this.activity = null;
         this.submitting = false;
         this.target = "";
       });
@@ -130,7 +134,7 @@ class ActivityStore {
   };
 
   openCreateForm = () => {
-    this.activity = undefined;
+    this.activity = null;
     this.editMode = true;
   };
 
@@ -140,7 +144,7 @@ class ActivityStore {
   };
 
   cancelSelectedActivity = () => {
-    this.activity = undefined;
+    this.activity = null;
     this.editMode = false;
   };
 

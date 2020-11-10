@@ -4,7 +4,7 @@ import { IActivity } from "../../../app/models/activity";
 import { v4 as uuid } from "uuid";
 import ActivityStore from "../../../app/stores/activityStore";
 import { observer } from "mobx-react-lite";
-import { match, RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps } from "react-router-dom";
 
 interface matchParams {
   id: string;
@@ -21,6 +21,7 @@ const ActivityForm: React.FC<RouteComponentProps<matchParams>> = ({
     cancelFormOpen,
     activity: InitialFormState,
     loadActivity,
+    clearActivity,
   } = activityStore;
 
   useEffect(() => {
@@ -28,8 +29,12 @@ const ActivityForm: React.FC<RouteComponentProps<matchParams>> = ({
       loadActivity(match.params.id).then(
         () => InitialFormState && setactivity(InitialFormState)
       );
+
+      return () => {
+        clearActivity();
+      };
     }
-  });
+  }, [loadActivity, clearActivity, match.params.id, InitialFormState]);
 
   const [activity, setactivity] = useState<IActivity>({
     id: "",
