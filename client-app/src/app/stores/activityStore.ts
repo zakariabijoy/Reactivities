@@ -12,10 +12,8 @@ class ActivityStore {
 
   //obserable
   activityRegistry = new Map();
-  activities: IActivity[] = [];
   activity: IActivity | null = null;
   loadingInitial = false;
-  editMode = false;
   submitting = false;
   target = "";
 
@@ -72,11 +70,6 @@ class ActivityStore {
     this.activity = null;
   };
 
-  selectActivity = (id: string) => {
-    this.activity = this.activityRegistry.get(id);
-    this.editMode = false;
-  };
-
   createActivity = async (activity: IActivity) => {
     this.submitting = true;
     try {
@@ -84,7 +77,6 @@ class ActivityStore {
       runInAction(() => {
         this.activityRegistry.set(activity.id, activity);
         this.activity = activity;
-        this.editMode = false;
         this.submitting = false;
       });
     } catch (error) {
@@ -102,7 +94,6 @@ class ActivityStore {
       runInAction(() => {
         this.activityRegistry.set(activity.id, activity);
         this.activity = activity;
-        this.editMode = false;
         this.submitting = false;
       });
     } catch (error) {
@@ -131,25 +122,6 @@ class ActivityStore {
         this.target = "";
       });
     }
-  };
-
-  openCreateForm = () => {
-    this.activity = null;
-    this.editMode = true;
-  };
-
-  openEditMode = (id: string) => {
-    this.activity = this.activityRegistry.get(id);
-    this.editMode = true;
-  };
-
-  cancelSelectedActivity = () => {
-    this.activity = null;
-    this.editMode = false;
-  };
-
-  cancelFormOpen = () => {
-    this.editMode = false;
   };
 }
 
