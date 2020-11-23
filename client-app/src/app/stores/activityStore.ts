@@ -1,4 +1,5 @@
 import { makeAutoObservable, configure, runInAction } from "mobx";
+import { objectPrototype } from "mobx/dist/internal";
 import { createContext, SyntheticEvent } from "react";
 import agent from "../api/agent";
 import { IActivity } from "./../models/activity";
@@ -19,11 +20,26 @@ class ActivityStore {
 
   //computeed
   get activitiesByDate() {
-    return Array.from(this.activityRegistry.values())
-      .slice(0)
-      .sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
+    return this.groupActivitesByDate(
+      Array.from(this.activityRegistry.values())
+    );
   }
 
+  groupActivitesByDate(activities: IActivity[]) {
+    const sortedActivities = activities.sort(
+      (a, b) => Date.parse(a.date) - Date.parse(b.date)
+    );
+
+    return Object.entries(
+      sortedActivities.reduce((activities, activity) => {
+        const data = activity.date.split("T")[0];
+        activities[data] = activities[data]
+          ? [...activities[data], activity]
+          : [activity];
+        return activities;
+      }, {} as { [key: string]: IActivity[] })
+    );
+  }
   // action
   loadActivities = async () => {
     this.loadingInitial = true;
@@ -36,6 +52,7 @@ class ActivityStore {
         });
         this.loadingInitial = false;
       });
+      console.log(this.groupActivitesByDate(activities));
     } catch (error) {
       console.log(error);
       runInAction(() => {
