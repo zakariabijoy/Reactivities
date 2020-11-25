@@ -1,5 +1,4 @@
 import { makeAutoObservable, configure, runInAction } from "mobx";
-import { objectPrototype } from "mobx/dist/internal";
 import { createContext, SyntheticEvent } from "react";
 import agent from "../api/agent";
 import { IActivity } from "./../models/activity";
@@ -8,7 +7,9 @@ configure({ enforceActions: "always" });
 
 class ActivityStore {
   constructor() {
-    makeAutoObservable(this);
+    makeAutoObservable(this, {
+      groupActivitesByDate: false,
+    });
   }
 
   //obserable
@@ -25,6 +26,7 @@ class ActivityStore {
     );
   }
 
+  // suppoting funtion for computed
   groupActivitesByDate(activities: IActivity[]) {
     const sortedActivities = activities.sort(
       (a, b) => Date.parse(a.date) - Date.parse(b.date)
