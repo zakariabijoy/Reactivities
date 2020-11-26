@@ -1,6 +1,7 @@
 import React from "react";
 import { Segment, Item, Header, Button, Image } from "semantic-ui-react";
 import { IActivity } from "./../../../app/models/activity";
+import { observer } from "mobx-react-lite";
 
 const activityImageStyle = {
   filter: "brightness(30%)",
@@ -55,4 +56,4 @@ const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({
   );
 };
 
-export default ActivityDetailedHeader;
+export default observer(ActivityDetailedHeader);
