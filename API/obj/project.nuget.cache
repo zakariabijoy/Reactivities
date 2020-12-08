@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Qjnta6qq4stWrwUX8jaKtmfyyqEIzU7GvpBUjZY5KMf93Tt9cC408h5/u/W65XU2JcUDZzFhzYtkDNCNcnRzwA==",
+  "dgSpecHash": "JlpX6eIpy7Rbd8QCFF+h1b2vG3gZV4VDLm42zu7l7L6KGIOH978WQNd7tN7kL+dy2RPrLV3kWgZUpLQNB+CKpA==",
   "success": true,
   "projectFilePath": "F:\\PROJECTS\\Asp.Net Core\\Asp.NetCoreWebApiWithReact\\Reactivities\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -34,6 +34,7 @@
     "C:\\Users\\Zakaria\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.8\\microsoft.extensions.logging.abstractions.3.1.8.nupkg.sha512",
     "C:\\Users\\Zakaria\\.nuget\\packages\\microsoft.extensions.options\\3.1.8\\microsoft.extensions.options.3.1.8.nupkg.sha512",
     "C:\\Users\\Zakaria\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
+    "C:\\Users\\Zakaria\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Zakaria\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\Zakaria\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
     "C:\\Users\\Zakaria\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",

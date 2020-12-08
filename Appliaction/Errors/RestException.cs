@@ -5,13 +5,15 @@ namespace Appliaction.Errors
 {
     public class RestException : Exception
     {
-        private readonly HttpStatusCode code;
-        private readonly object errors;
 
-        public RestException(HttpStatusCode code, object errors = null )
+        public HttpStatusCode Code { get; set; }
+        public object Errors { get; set; }
+
+        public RestException(HttpStatusCode code, object errors = null)
         {
-            this.code = code;
-            this.errors = errors;
+            Errors = errors;
+            Code = code;
+
         }
     }
 }
