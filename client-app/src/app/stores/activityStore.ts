@@ -34,9 +34,9 @@ class ActivityStore {
 
     return Object.entries(
       sortedActivities.reduce((activities, activity) => {
-        const data = activity.date.split("T")[0];
-        activities[data] = activities[data]
-          ? [...activities[data], activity]
+        const date = activity.date.split("T")[0];
+        activities[date] = activities[date]
+          ? [...activities[date], activity]
           : [activity];
         return activities;
       }, {} as { [key: string]: IActivity[] })
