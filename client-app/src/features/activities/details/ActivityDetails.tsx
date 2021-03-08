@@ -15,16 +15,21 @@ interface matchParams {
 
 const ActivityDetails: React.FC<RouteComponentProps<matchParams>> = ({
   match,
+  history,
 }) => {
   const activityStore = useContext(ActivityStore);
   const { activity, loadActivity, loadingInitial } = activityStore;
 
   useEffect(() => {
-    loadActivity(match.params.id);
-  }, [loadActivity, match.params.id]);
+    loadActivity(match.params.id).catch(() => {
+      history.push("/notfound");
+    });
+  }, [loadActivity, match.params.id, history]);
 
-  if (loadingInitial || !activity)
+  if (loadingInitial)
     return <LoadingComponent content="Loading Activity ..." />;
+
+  if (!activity) return <h2>activity not found</h2>;
 
   return (
     <Grid>
