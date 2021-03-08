@@ -6,7 +6,12 @@ import { toast } from "react-toastify";
 axios.defaults.baseURL = "https://localhost:5001/api";
 
 axios.interceptors.response.use(undefined, (error) => {
+  if (error.message === "Network Error" && !error.response)
+    toast.error(
+      "Network Error - Check Api is Running or check your network connection"
+    );
   const { status, data, config } = error.response;
+
   if (status === 404) {
     history.push("/notfound");
   }
