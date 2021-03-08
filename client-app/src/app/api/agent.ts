@@ -5,7 +5,15 @@ import { history } from "./../../index";
 axios.defaults.baseURL = "https://localhost:5001/api";
 
 axios.interceptors.response.use(undefined, (error) => {
-  if (error.response.status === 404) {
+  const { status, data, config } = error.response;
+  if (status === 404) {
+    history.push("/notfound");
+  }
+  if (
+    status === 400 &&
+    config.method === "get" &&
+    data.errors.hasOwnProperty("id")
+  ) {
     history.push("/notfound");
   }
 });
