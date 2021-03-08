@@ -80,7 +80,7 @@ class ActivityStore {
         runInAction(() => {
           this.loadingInitial = false;
         });
-        throw error;
+        console.log(error);
       }
     }
   };
