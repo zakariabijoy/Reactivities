@@ -7,6 +7,7 @@ import { observer } from "mobx-react-lite";
 import { RouteComponentProps } from "react-router-dom";
 import { Form as FinalForm, Field } from "react-final-form";
 import { values } from "mobx";
+import TextInput from "../../../app/common/form/TextInput";
 
 interface matchParams {
   id: string;
@@ -93,7 +94,7 @@ const ActivityForm: React.FC<RouteComponentProps<matchParams>> = ({
                   name="title"
                   placeholder="Title"
                   value={activity.title}
-                  component="input"
+                  component={TextInput}
                 />
                 <Form.TextArea
                   rows={2}
