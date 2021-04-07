@@ -8,6 +8,7 @@ import { RouteComponentProps } from "react-router-dom";
 import { Form as FinalForm, Field } from "react-final-form";
 import { values } from "mobx";
 import TextInput from "../../../app/common/form/TextInput";
+import { TextAreaInput } from "./../../../app/common/form/TextAreaInput";
 
 interface matchParams {
   id: string;
@@ -75,6 +76,13 @@ const ActivityForm: React.FC<RouteComponentProps<matchParams>> = ({
     console.log(values);
   };
 
+  const handleInputChange = (
+    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.currentTarget;
+    setactivity({ ...activity, [name]: value });
+  };
+
   return (
     <Grid>
       <Grid.Column width={10}>
@@ -92,8 +100,9 @@ const ActivityForm: React.FC<RouteComponentProps<matchParams>> = ({
                 <Field
                   name="description"
                   placeholder="Description"
+                  rows={3}
                   value={activity.description}
-                  component={TextInput}
+                  component={TextAreaInput}
                 />
                 <Field
                   component={TextInput}
