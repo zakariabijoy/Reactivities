@@ -1,14 +1,14 @@
 import React, { FormEvent, useContext, useEffect, useState } from "react";
 import { Button, Form, Grid, Segment } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
-import { v4 as uuid } from "uuid";
 import ActivityStore from "../../../app/stores/activityStore";
 import { observer } from "mobx-react-lite";
 import { RouteComponentProps } from "react-router-dom";
 import { Form as FinalForm, Field } from "react-final-form";
-import { values } from "mobx";
 import TextInput from "../../../app/common/form/TextInput";
 import { TextAreaInput } from "./../../../app/common/form/TextAreaInput";
+import { SelectInput } from "./../../../app/common/form/SelectInput";
+import { category } from "./../../../app/common/options/categoryOptions";
 
 interface matchParams {
   id: string;
@@ -105,7 +105,8 @@ const ActivityForm: React.FC<RouteComponentProps<matchParams>> = ({
                   component={TextAreaInput}
                 />
                 <Field
-                  component={TextInput}
+                  component={SelectInput}
+                  options={category}
                   name="category"
                   placeholder="Category"
                   value={activity.category}
