@@ -10,7 +10,6 @@ export const routes: RouteObject[] =[
         path: '/',
         element: <App/>,
         children:[
-            { path:'', element: <HomePage/>},
             { path:'activities', element: <ActivityDashboard/>},
             { path:'activities/:id', element: <ActivityDetails/>},
             { path:'createActivity', element: <ActivityForm key='create'/>},  // have to use key if we want to use same component for diffrent route to reset state
