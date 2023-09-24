@@ -14,9 +14,9 @@ public class ActivitiesController : BaseApiController
     }
 
     [HttpGet("{id}")] //api/activities/id
-    public async Task<ActionResult<Activity>> GetActivity(Guid id)
+    public async Task<IActionResult> GetActivity(Guid id)
     {
-        return Ok(await Mediator.Send(new Details.Query{Id = id})); 
+        return HandleResult(await Mediator.Send(new Details.Query{Id = id}));
     }
 
     [HttpPost]
