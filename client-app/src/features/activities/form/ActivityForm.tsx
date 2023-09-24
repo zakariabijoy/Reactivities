@@ -10,6 +10,8 @@ import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import GenericTextInput from "../../../app/common/form/GenericTextInput";
 import GenericTextArea from "../../../app/common/form/GenericTextArea";
+import GenericSelectInput from "../../../app/common/form/GenericSelectInput";
+import { categoryOptions } from "../../../app/common/options/categoryOption";
 
 
 export default observer(function ActivityForm(){
@@ -68,7 +70,7 @@ export default observer(function ActivityForm(){
                     <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
                         <GenericTextInput name="title" placeholder="Title"/>    
                         <GenericTextArea rows={3} placeholder="Description" name='description'/>
-                        <GenericTextInput placeholder="Category" name='category'/>
+                        <GenericSelectInput option={categoryOptions} placeholder="Category" name='category'/>
                         <GenericTextInput placeholder="Date" name='date'/>
                         <GenericTextInput placeholder="City" name='city'/>
                         <GenericTextInput placeholder="Venue" name='venue'/>
