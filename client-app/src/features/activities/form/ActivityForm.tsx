@@ -9,6 +9,7 @@ import {v4 as uuid} from 'uuid';
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import GenericTextInput from "../../../app/common/form/GenericTextInput";
+import GenericTextArea from "../../../app/common/form/GenericTextArea";
 
 
 export default observer(function ActivityForm(){
@@ -66,7 +67,7 @@ export default observer(function ActivityForm(){
                 {({handleSubmit}) =>(
                     <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
                         <GenericTextInput name="title" placeholder="Title"/>    
-                        <GenericTextInput placeholder="Description" name='description'/>
+                        <GenericTextArea rows={3} placeholder="Description" name='description'/>
                         <GenericTextInput placeholder="Category" name='category'/>
                         <GenericTextInput placeholder="Date" name='date'/>
                         <GenericTextInput placeholder="City" name='city'/>
