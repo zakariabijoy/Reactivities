@@ -13,6 +13,7 @@ public static class IdentityServiceExtension
     {
         services.AddIdentityCore<AppUser>(opt =>{
             opt.Password.RequireNonAlphanumeric = false;
+            opt.User.RequireUniqueEmail =true;
         })
         .AddEntityFrameworkStores<DataContext>();
 
