@@ -1,3 +1,4 @@
+using API.Services;
 using Domain;
 using Persistence;
 
@@ -13,6 +14,7 @@ public static class IdentityServiceExtension
         .AddEntityFrameworkStores<DataContext>();
 
         services.AddAuthentication();
+        services.AddScoped<TokenService>();
         
         return services;
     }
