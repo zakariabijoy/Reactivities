@@ -16,7 +16,7 @@ public static class IdentityServiceExtension
         })
         .AddEntityFrameworkStores<DataContext>();
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("b-so!_`\r|Gr/DjuNEgX{]Sjqb+^o+`V|\\HTClM-f8bl-?FC|TAq%u\\)\\hk42Lbdsadas:"));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(opt => {
@@ -28,7 +28,7 @@ public static class IdentityServiceExtension
                     ValidateAudience = false
                 };
             });
-            
+
         services.AddScoped<TokenService>();
         
         return services;
