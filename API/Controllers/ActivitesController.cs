@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API;
 
-[AllowAnonymous]
 public class ActivitiesController : BaseApiController
 {
 
