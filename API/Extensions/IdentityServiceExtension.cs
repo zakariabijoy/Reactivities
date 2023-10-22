@@ -1,7 +1,9 @@
 using System.Text;
 using API.Services;
 using Domain;
+using Infrastructure.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
 
@@ -29,7 +31,12 @@ public static class IdentityServiceExtension
                     ValidateAudience = false
                 };
             });
-
+        
+        services.AddAuthorization(opt => opt.AddPolicy("IsActivityHost", policy =>
+        {
+            policy.Requirements.Add(new IsHostRequirment());
+        }));
+        services.AddTransient<IAuthorizationHandler, IsHostRequirmentHandler>();
         services.AddScoped<TokenService>();
         
         return services;
