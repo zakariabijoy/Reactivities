@@ -1,6 +1,6 @@
 using Application.Core;
 using AutoMapper;
-using Domain;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -25,13 +25,10 @@ public class List
         public async Task<Result<List<ActivityDto>>> Handle(Query request, CancellationToken cancellationToken)
         {
             var activities = await _context.Activities
-                .Include(a => a.Attendees)
-                .ThenInclude(aa => aa.AppUser)
+                .ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
-
-            var activitiesToReturn = _mapper.Map<List<ActivityDto>>(activities);
                 
-            return Result<List<ActivityDto>>.Successs(activitiesToReturn);
+            return Result<List<ActivityDto>>.Successs(activities);
         }
     }
 }
