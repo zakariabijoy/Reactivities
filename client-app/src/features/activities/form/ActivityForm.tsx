@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Activity, ActivityFormValues } from "../../../app/models/activity";
+import { ActivityFormValues } from "../../../app/models/activity";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import {v4 as uuid} from 'uuid';
 import { Formik, Form } from "formik";
@@ -18,7 +18,7 @@ import GenericDateInput from "../../../app/common/form/GenericDateInput";
 export default observer(function ActivityForm(){
     
     const {activityStore} = useStore();
-    const {createActivity, updateActivity, loading, loadActivity, loadingInitial} = activityStore;
+    const {createActivity, updateActivity, loadActivity, loadingInitial} = activityStore;
     const {id} = useParams();
     const navigate = useNavigate();
 
