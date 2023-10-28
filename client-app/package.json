@@ -19,6 +19,7 @@
     "mobx-react-lite": "^4.0.4",
     "react": "^18.2.0",
     "react-calendar": "^4.6.0",
+    "react-cropper": "^2.3.3",
     "react-datepicker": "^3.3.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
