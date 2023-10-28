@@ -24,9 +24,10 @@ export default observer(function ProfilePage(){
     return (
        <Grid>
             <Grid.Column width={16}>
-                {profile &&
-                <ProfileHeader profile={profile}/>}
-                <ProfileContent/>
+                {profile && <>
+                    <ProfileHeader profile={profile}/>
+                    <ProfileContent profile={profile}/> 
+                </>}
             </Grid.Column>
        </Grid>
     )

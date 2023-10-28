@@ -20,7 +20,9 @@ export default class ProfileStore{
         } catch (error) {
             console.log(error);
         }finally{
-            this.loadingProfile = false;
+            runInAction(() =>{
+                this.loadingProfile = false;
+            });   
         }
     }
 }
