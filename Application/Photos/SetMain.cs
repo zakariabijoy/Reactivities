@@ -42,7 +42,7 @@ public class SetMain
 
            var success = await _context.SaveChangesAsync() > 0;
 
-           if(success) return Result<Unit>.Successs(Unit.Value);
+           if(success) return Result<Unit>.Success(Unit.Value);
 
            return Result<Unit>.Failure("Problem setting main photo");
         }

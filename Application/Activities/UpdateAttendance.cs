@@ -63,7 +63,7 @@ public class UpdateAttendance
 
             var result = await _context.SaveChangesAsync() > 0;
 
-            return result ? Result<Unit>.Successs(Unit.Value) : Result<Unit>.Failure("Problem updating attendance");
+            return result ? Result<Unit>.Success(Unit.Value) : Result<Unit>.Failure("Problem updating attendance");
         }
     }
 }

@@ -32,7 +32,7 @@ public class Delete
 
             if(!result) return Result<Unit>.Failure("Failed to delete the activity");
 
-            return Result<Unit>.Successs(Unit.Value);
+            return Result<Unit>.Success(Unit.Value);
         }
     }
 }

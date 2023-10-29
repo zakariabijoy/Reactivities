@@ -45,7 +45,7 @@ public class Edit
 
             if(!result) return Result<Unit>.Failure("Failed Update Activity");
 
-            return Result<Unit>.Successs(Unit.Value);
+            return Result<Unit>.Success(Unit.Value);
         }
     }
 }

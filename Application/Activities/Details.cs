@@ -29,7 +29,7 @@ public class Details
             var activity =  await _context.Activities.ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)
             .FirstOrDefaultAsync(x => x.Id == request.Id);
 
-            return Result<ActivityDto>.Successs(activity);
+            return Result<ActivityDto>.Success(activity);
         }
     }
 }

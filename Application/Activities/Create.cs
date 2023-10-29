@@ -53,7 +53,7 @@ public class Create
 
             if(!result) return Result<Unit>.Failure("Failed to create activity");
 
-            return Result<Unit>.Successs(Unit.Value);
+            return Result<Unit>.Success(Unit.Value);
         }
     }
 }

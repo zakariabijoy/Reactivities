@@ -48,7 +48,7 @@ public class Add
 
             var result = await  _context.SaveChangesAsync() > 0;
 
-            if(result) return Result<Photo>.Successs(photo);
+            if(result) return Result<Photo>.Success(photo);
 
             return Result<Photo>.Failure("Problem adding photo");
         }

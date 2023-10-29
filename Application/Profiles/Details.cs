@@ -33,7 +33,7 @@ public class Details
 
             if(user == null) return null;
             
-            return Result<Profile>.Successs(user);
+            return Result<Profile>.Success(user);
         }
     }
 }

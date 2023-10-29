@@ -28,7 +28,7 @@ public class List
                 .ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
                 
-            return Result<List<ActivityDto>>.Successs(activities);
+            return Result<List<ActivityDto>>.Success(activities);
         }
     }
 }
