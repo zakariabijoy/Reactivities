@@ -22,6 +22,7 @@ public class Create
         public CommandValidator()
         {
             RuleFor(x => x.Body).NotEmpty();
+            RuleFor(x => x.ActivityId).NotEmpty();
         }
     }
     public class Handler : IRequestHandler<Command, Result<CommentDto>>
