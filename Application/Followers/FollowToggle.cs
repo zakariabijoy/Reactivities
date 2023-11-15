@@ -30,7 +30,7 @@ public class FollowToggle
         {
             var observer = await _context.Users.FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
 
-            var target =   await _context.Users.FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
+            var target =   await _context.Users.FirstOrDefaultAsync(x => x.UserName == request.TargetUsername);
 
             if(target is null) return null;
 
