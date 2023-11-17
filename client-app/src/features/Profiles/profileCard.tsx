@@ -23,7 +23,7 @@ export default observer(function ProfileCard({profile}:Props){
             </Card.Content>
             <Card.Content extra>
                 <Icon name="users"/>
-                20 followers
+                {profile.followersCount} followers
             </Card.Content>
         </Card>
     )
