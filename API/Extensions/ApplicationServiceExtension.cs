@@ -19,7 +19,7 @@ public static class ApplicationServiceExtension
         services.AddSwaggerGen();
 
         services.AddDbContext<DataContext>(opt => {
-            opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
+            opt.UseNpgsql(config.GetConnectionString("DefaultConnection"));
         });
 
         services.AddCors(opt =>{
