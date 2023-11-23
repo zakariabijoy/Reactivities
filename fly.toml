@@ -1,0 +1,18 @@
+# fly.toml app configuration file generated for reactivities-zb on 2023-11-24T00:45:02+06:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "reactivities-zb"
+primary_region = "sin"
+
+[build]
+  image = "zakariabijoy/reactivities:latest"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
