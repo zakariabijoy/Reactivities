@@ -9,6 +9,11 @@ primary_region = "sin"
 [build]
   image = "zakariabijoy/reactivities:latest"
 
+[env]
+  ASPNETCORE_URLS="http://+:8080"
+  Cloudinary__CloudName="zakariabijoy"
+  Cloudinary__APIKey="372896596436432"
+
 [http_service]
   internal_port = 8080
   force_https = true
