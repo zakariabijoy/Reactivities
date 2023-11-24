@@ -15,11 +15,18 @@ public class AccountController : ControllerBase
 {
     private readonly UserManager<AppUser> _userManager;
     private readonly TokenService _tokenService;
+    private readonly IConfiguration _config;
+    private readonly HttpClient _httpClient;
 
-    public AccountController(UserManager<AppUser> userManager, TokenService tokenService)
+    public AccountController(UserManager<AppUser> userManager, TokenService tokenService, IConfiguration config)
     {
+        _config = config;
         _userManager = userManager;
         _tokenService = tokenService;
+        _httpClient = new HttpClient
+        {
+            BaseAddress = new Uri("https://graph.facebook.com")
+        };
     }
 
     [AllowAnonymous]
@@ -80,6 +87,23 @@ public class AccountController : ControllerBase
         var user = await _userManager.Users.Include(u => u.Photos).FirstOrDefaultAsync(u => u.Email == User.FindFirstValue(ClaimTypes.Email));
 
         return CreateUserObject(user);
+    }
+
+    [AllowAnonymous]
+    [HttpPost("fbLogin")]
+    public async Task<ActionResult<UserDto>> FacebookLogin(string accessToken)
+    {
+        var fbVerifyKeys = _config["Facebook:AppId"] + "|" + _config["Facebook:AppSecret"];
+
+        var verifyTokenResponse = await _httpClient.GetAsync($"debug_token?input_token={accessToken}&access_token={fbVerifyKeys}");
+
+        if(!verifyTokenResponse.IsSuccessStatusCode) return Unauthorized();
+
+        var fbUrl = $"me?access_token={accessToken}&fields=name,email,picture.width(100).height(100)";
+
+        var response = await _httpClient.GetFromJsonAsync<dynamic>(fbUrl);
+
+        return new UserDto();
     }
 
     private UserDto CreateUserObject(AppUser user)
