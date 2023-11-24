@@ -37,12 +37,12 @@ export default observer(function HomePage(){
                     <FacebookLogin
                         appId="859222439029599"
                         onSuccess={(response: SuccessResponse) => {
-                            console.log("Login Success!", response);
+                            userStore.facebookLogin(response.accessToken);
                         }}
                         onFail={(response: FailResponse) => {
                             console.log("Login Failed!", response);
                         }}
-                        className="ui button facebook huge inverted"
+                        className={`ui button facebook huge inverted ${userStore.fbLoading && 'loading'}`}
                     />
                     </>
                 )}        
