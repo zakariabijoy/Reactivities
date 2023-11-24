@@ -101,9 +101,33 @@ public class AccountController : ControllerBase
 
         var fbUrl = $"me?access_token={accessToken}&fields=name,email,picture.width(100).height(100)";
 
-        var response = await _httpClient.GetFromJsonAsync<dynamic>(fbUrl);
+        var fbInfo = await _httpClient.GetFromJsonAsync<FacebookDto>(fbUrl);
 
-        return new UserDto();
+        var user = await _userManager.Users.Include(p => p.Photos).FirstOrDefaultAsync(x => x.Email == fbInfo.Email);
+
+        if(user is not null) return CreateUserObject(user);
+
+        user = new AppUser
+        {
+            DisplayName = fbInfo.Name,
+            Email = fbInfo.Email,
+            UserName = fbInfo.Email,
+            Photos = new List<Photo>
+            {
+                new Photo
+                {
+                    Id= "fb_" + fbInfo.Id,
+                    Url = fbInfo.Picture.Data.Url,
+                    IsMain = true
+                }
+            }
+        };
+
+        var result = await _userManager.CreateAsync(user);
+
+        if(!result.Succeeded) return BadRequest("Problem creating user account");
+
+        return CreateUserObject(user);
     }
 
     private UserDto CreateUserObject(AppUser user)
