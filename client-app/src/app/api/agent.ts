@@ -52,7 +52,7 @@ axios.interceptors.response.use(async response =>{
             }
             break;
         case 401:
-            if(status === 401 && headers['www-authenticate']?.startWith('Bearer error="invalid_token"')){
+            if(status === 401 && headers['www-authenticate']?.startsWith('Bearer error="invalid_token"')){
                 store.userStore.logout();
                 toast.error('Session expired - please login again');
             }else{
