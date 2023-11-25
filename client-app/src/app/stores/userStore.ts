@@ -96,7 +96,7 @@ export default class UserStore{
     private startRefreshTokenTimer(user: User){
         const jwtToken = JSON.parse(atob(user.token.split('.')[1]));
         const expires = new Date(jwtToken.exp * 1000);
-        const timeout = expires.getTime() - Date.now() - (30*1000);
+        const timeout = expires.getTime() - Date.now() - (60*1000);
         this.refreshTokenTimeout = setTimeout(this.refreshToken, timeout);
         console.log({refreshTimeout: this.refreshTokenTimeout}); 
     }
