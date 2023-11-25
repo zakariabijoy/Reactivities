@@ -15,6 +15,7 @@ public class DataContext : IdentityDbContext<AppUser>
     public DbSet<Photo>  Photos { get; set; }
     public DbSet<Comment>  Comments { get; set; }
     public DbSet<UserFollowing>  UserFollowings { get; set; }
+    public DbSet<RefreshToken>  RefreshTokens { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
