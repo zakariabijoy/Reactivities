@@ -31,7 +31,7 @@ axios.interceptors.response.use(async response =>{
 
     return response;
 }, (error: AxiosError) =>{
-    const {data, status, config} = error.response as AxiosResponse;
+    const {data, status, config, headers} = error.response as AxiosResponse;
     switch (status) {
         case 400:
             if(config.method === 'get' && Object.prototype.hasOwnProperty.call(data.errors, 'id')){
@@ -51,7 +51,12 @@ axios.interceptors.response.use(async response =>{
             }
             break;
         case 401:
-            toast.error('unauthorized');
+            if(status === 401 && headers['www-authenticate']?.startWith('Bearer error="invalid_token"')){
+                store.userStore.logout();
+                toast.error('Session expired - please login again');
+            }else{
+                toast.error('unauthorized');
+            } 
             break;
         case 403:
             toast.error('forbiddent');
@@ -89,7 +94,8 @@ const Account ={
     current: () => request.get<User>('/account'),
     login: (user: UserFormValues) => request.post<User>('/account/login', user),
     register: (user: UserFormValues) => request.post<User>('/account/register', user),
-    fbLogin: (accessToken: string) => request.post<User>(`/account/fbLogin?accessToken=${accessToken}`, {})
+    fbLogin: (accessToken: string) => request.post<User>(`/account/fbLogin?accessToken=${accessToken}`, {}),
+    refreshToken: () => request.post<User>(`/account/refreshToken`, {})
 }
 
 const Profiles ={
