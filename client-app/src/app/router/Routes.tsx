@@ -26,7 +26,7 @@ export const routes: RouteObject[] =[
             ]},
             { path:'not-found', element: <NotFound/>},
             { path:'server-error', element: <ServerError/>},
-            { path:'account/registerSuccess', element: <RegisterSuccess/>},
+            { path:'account/userRegisterSuccess', element: <RegisterSuccess/>},
             { path:'account/verifyEmail', element: <ConfirmEmail/>},
             { path:'*', element: <Navigate replace to='/not-found'/>}
         ]
