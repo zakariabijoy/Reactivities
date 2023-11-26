@@ -67,7 +67,7 @@ public class AccountController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("register")]
-    public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
+    public async Task<ActionResult> Register(RegisterDto registerDto)
     {
         if(await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username))
         {
