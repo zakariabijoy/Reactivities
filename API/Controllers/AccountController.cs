@@ -67,7 +67,7 @@ public class AccountController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("register")]
-    public async Task<ActionResult> Register(RegisterDto registerDto)
+    public async Task<IActionResult> Register(RegisterDto registerDto)
     {
         if(await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username))
         {
@@ -90,7 +90,7 @@ public class AccountController : ControllerBase
 
         var result = await _userManager.CreateAsync(user, registerDto.Password);
 
-        if(!result.Succeeded) return BadRequest("Problem registerning user");
+        if(!result.Succeeded) return BadRequest("Problem registering user");
 
         var origin = Request.Headers["origin"];
         var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
