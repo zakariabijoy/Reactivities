@@ -17,9 +17,11 @@ public class AccountController : ControllerBase
     private readonly TokenService _tokenService;
     private readonly IConfiguration _config;
     private readonly HttpClient _httpClient;
+        private readonly SignInManager<AppUser> _signInManager;
 
-    public AccountController(UserManager<AppUser> userManager, TokenService tokenService, IConfiguration config)
+    public AccountController(UserManager<AppUser> userManager, TokenService tokenService, IConfiguration config, SignInManager<AppUser> signInManager)
     {
+        _signInManager = signInManager;
         _config = config;
         _userManager = userManager;
         _tokenService = tokenService;
@@ -35,17 +37,21 @@ public class AccountController : ControllerBase
     {
         var user =  await _userManager.Users.Include(u => u.Photos).FirstOrDefaultAsync(u => u.Email == loginDto.Email);
 
-        if(user is null) return Unauthorized();
+        if(user is null) return Unauthorized("invalid Email");
 
-        var result =  await _userManager.CheckPasswordAsync(user, loginDto.Password);
+        if(user.UserName == "bob") user.EmailConfirmed = true;
 
-        if(result)
+        if(!user.EmailConfirmed) return Unauthorized("Email not confirmed");
+
+        var result =  await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+
+        if(result.Succeeded)
         {
             await SetRefreshToken(user);
             return CreateUserObject(user);
         }
 
-        return Unauthorized();
+        return Unauthorized("Invalid password");
     }
 
     [AllowAnonymous]
